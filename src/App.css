@@ -1,0 +1,391 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  color: #f8fafc;
+  background: #080b18;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(124, 58, 237, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(236, 72, 153, 0.07),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 122, 89, 0.04),
+      transparent 35%
+    ),
+    #080b18;
+
+  color: #f8fafc;
+}
+
+/* ================================
+   Selection
+================================ */
+
+::selection {
+  background: rgba(236, 72, 153, 0.35);
+  color: #ffffff;
+}
+
+/* ================================
+   Scrollbar
+================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080b18;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #7c3aed,
+    #ec4899,
+    #ff7a59
+  );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #8b5cf6,
+    #f472b6,
+    #fb8b6b
+  );
+}
+
+/* Firefox */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed #080b18;
+}
+
+/* ================================
+   Links
+================================ */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ================================
+   Buttons
+================================ */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* ================================
+   Inputs
+================================ */
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b;
+}
+
+/* ================================
+   Glass Utility
+================================ */
+
+.glass {
+  background: rgba(20, 26, 48, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ================================
+   Strong Glass
+================================ */
+
+.glass-strong {
+  background: rgba(20, 26, 48, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ================================
+   Gradient Text
+================================ */
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #7c3aed 0%,
+    #ec4899 50%,
+    #ff7a59 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ================================
+   Gradient Border
+================================ */
+
+.gradient-border {
+  position: relative;
+  border-radius: 1rem;
+  background:
+    linear-gradient(#141a30, #141a30) padding-box,
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #ec4899,
+      #ff7a59
+    ) border-box;
+
+  border: 1px solid transparent;
+}
+
+/* ================================
+   Neon Glow
+================================ */
+
+.neon-glow {
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.15),
+    0 0 45px rgba(236, 72, 153, 0.08);
+}
+
+.neon-glow-hover {
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.neon-glow-hover:hover {
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.22),
+    0 0 55px rgba(236, 72, 153, 0.12);
+}
+
+/* ================================
+   Animated Gradient
+================================ */
+
+.animated-gradient {
+  background: linear-gradient(
+    120deg,
+    #7c3aed,
+    #ec4899,
+    #ff7a59,
+    #7c3aed
+  );
+
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ================================
+   Floating Glow
+================================ */
+
+.floating-glow {
+  animation: floatingGlow 5s ease-in-out infinite;
+}
+
+@keyframes floatingGlow {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+}
+
+/* ================================
+   Page Fade In
+================================ */
+
+.page-enter {
+  animation: pageEnter 0.45s ease-out both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   Shimmer Loading Effect
+================================ */
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: #141a30;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+
+  animation: shimmer 1.8s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ================================
+   Pulse Glow
+================================ */
+
+.pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(236, 72, 153, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(236, 72, 153, 0.18),
+      0 0 50px rgba(124, 58, 237, 0.08);
+  }
+}
+
+/* ================================
+   Focus States
+================================ */
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(236, 72, 153, 0.5);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.08);
+}
+
+/* ================================
+   Image Defaults
+================================ */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================================
+   Mobile
+================================ */
+
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* ================================
+   Reduced Motion
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
